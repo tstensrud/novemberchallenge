@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply h-full w-full m-0 p-0 antialiased;
+  }
+
+  body {
+    @apply h-full w-full m-0 p-0 antialiased bg-secondary-color text-primary-color overflow-hidden;
+  }
+
+  a {
+    @apply text-primary-color rounded-full pl-2 pr-2 hover:bg-accent-color-main transition duration-300;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app-container {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
