@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD0FtFdsURWD-yq0d4EubYGGslH45_5vDo",
-  authDomain: "novemberchallenge2024.firebaseapp.com",
-  projectId: "novemberchallenge2024",
-  storageBucket: "novemberchallenge2024.appspot.com",
-  messagingSenderId: "777282888321",
-  appId: "1:777282888321:web:cb41fc95180c32349ba380"
+  apiKey: import.meta.env.VITE_FIREBASE_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
