@@ -8,11 +8,11 @@ export default {
     colors: {
       "primary-color": "#FEFEFE",
       "primary-color-faded": "#9C9DA2",
-      "secondary-color": "#0E0D12",
-      "tertiary-color": "#141318",
+      "secondary-color": "#121212",
+      "tertiary-color": "#1E1E1E",
       "accent-color-main": "#EB6B44",
       "accent-color-secondary": "#7E67F6",
-      "accent-color-secondary-faded": "#25203E"
+      "accent-color-secondary-faded": "#37305c"
     },
     extend: {
       fontFamily: {
@@ -33,6 +33,21 @@ export default {
         ]
       }
     },
+    keyframes : {
+      slider: {
+        '0%': {left: '-30%'},
+        '50%': {let: '50%'},
+        '100%': {left: '100%'}
+      },
+      spin: {
+        '0%': {transform: 'rotate(0deg)'},
+        '100%': {transform: 'rotate(360deg)'}
+      }
+    },
+    animation: {
+      slider: 'slider 3.0s linear infinite',
+      spin: 'spin 1s linear infinite'
+    }
   },
   plugins: [],
 }

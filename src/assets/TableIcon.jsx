@@ -1,8 +1,8 @@
 import { svgDimensions, svgClass } from "../utils";
 
-function TableIcon() {
+function TableIcon({activeIndex, index}) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" width={svgDimensions} height={svgDimensions} viewBox="0 0 24 24" className={svgClass}>
+        <svg xmlns="http://www.w3.org/2000/svg" width={svgDimensions} height={svgDimensions} viewBox="0 0 24 24" className={`${activeIndex === index ? 'stroke-primary-color' : 'stroke-primary-color-faded'} stroke-2 group-hover:stroke-primary-color fill-none transition duration-300`}>
             <line x1="2" y1="6" x2="21" y2="6"></line>
             <line x1="2" y1="12" x2="21" y2="12"></line>
             <line x1="2" y1="18" x2="21" y2="18"></line>

@@ -11,4 +11,4 @@ const addUserr = async (username) => {
 }
 
 export const svgDimensions = 20;
-export const svgClass = 'stroke-2 stroke-primary-color fill-none';
+export const svgClass = 'stroke-2 stroke-primary-color group-hover:stroke-primary-color fill-none';

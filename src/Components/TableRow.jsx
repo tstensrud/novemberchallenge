@@ -1,18 +1,30 @@
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, getDocs, query, where, onSnapshot } from 'firebase/firestore';
 import { db } from "../../firebase";
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 
 import ProgressBar from "./ProgressBar";
-import { Link } from 'react-router-dom';
+import LoadingBar from './LoadingBar';
 
 function TableRow({ index, userData, userId }) {
 
-    const [sessions, setSessions] = useState(null);
+    const [sessions, setSessions] = useState({});
     const [totalSessions, setTotalSessions] = useState(0);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        setLoading(true);
         if (userId) {
-            getUserSessions();
+            const fetchUserSessions = async () => {
+                try {
+                    await getUserSessions();
+                } catch (error) {
+                    console.error(error);
+                } finally {
+                    setLoading(false);
+                }
+            }
+            fetchUserSessions();
         }
     }, [userId]);
 
@@ -23,27 +35,31 @@ function TableRow({ index, userData, userId }) {
     }, [sessions]);
 
     const getUserSessions = async () => {
-        try {
-            const sessionsQuery = query(collection(db, "sessions"), where("userId", "==", userId));
-            const querySnapshot = await getDocs(sessionsQuery);
+        const sessionsQuery = query(collection(db, "sessions"), where("userId", "==", userId));
+        const querySnapshot = await getDocs(sessionsQuery);
 
-            const sessionList = querySnapshot.docs.map(doc => ({
-                id: doc.id,
-                ...doc.data()
-            }));
+        const sessionList = querySnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
 
-            setSessions(sessionList)
-        } catch (error) {
-            console.error(error);
-        }
+        setSessions(sessionList)
     }
 
     return (
         <div key={index} className="flex w-full">
             <div className="flex justify-start p-2 w-1/3 rounded-tl-lg">
-                <Link to={`/${userData.name}/${userId}`}>{userData.name}</Link>
+                <Link to={`/${userData?.name}/${userData?.id}`}>{userData?.name}</Link>
             </div>
-            <div className="flex justify-end items-center p-2 w-2/3 rounded-tr-lg"><ProgressBar totalSessions={totalSessions} /></div>
+            <div className="flex justify-end items-center p-2 w-2/3 rounded-tr-lg">
+                {
+                    loading ? (
+                        <LoadingBar />
+                    ) : (
+                        <ProgressBar totalSessions={totalSessions} />
+                    )
+                }
+            </div>
         </div>
     );
 }

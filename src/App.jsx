@@ -5,6 +5,7 @@ import NewSession from './NewSession';
 import Table from './Table';
 import Stats from './Stats';
 import NotFound from './NotFound';
+import Help from './Help';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
           <Route path="/:name/:userId" element={<User />} />
           <Route path="newsession" element={<NewSession />} />
           <Route path="stats" element={<Stats />} />
+          <Route path="help" element={<Help />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

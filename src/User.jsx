@@ -8,12 +8,19 @@ import SessionTableRow from "./Components/SessionTableRow";
 
 function User() {
     const { name, userId } = useParams();
-    const [sessions, setSessions] = useState(null);
+    const [sessions, setSessions] = useState({});
     const [totalTrainingDuration, setTotalTrainingDuration] = useState(0);
 
     useEffect(() => {
         if (userId) {
-            getUserSessions();
+            const fetchUserSessions = async () => {
+                try {
+                    await getUserSessions();
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+            fetchUserSessions();
         }
     }, [userId]);
 
@@ -21,21 +28,16 @@ function User() {
         if (sessions) {
             calculateTrainingHours();
         }
-    }, [sessions])
+    }, [sessions]);
 
     const getUserSessions = async () => {
-        try {
-            const sessionsQuery = query(collection(db, "sessions"), where("userId", "==", userId));
-            const querySnapshot = await getDocs(sessionsQuery);
-
-            const sessionList = querySnapshot.docs.map(doc => ({
-                id: doc.id,
-                ...doc.data()
-            }));
-            setSessions(sessionList)
-        } catch (error) {
-            console.error(error);
-        }
+        const sessionsQuery = query(collection(db, "sessions"), where("userId", "==", userId));
+        const querySnapshot = await getDocs(sessionsQuery);
+        const sessionList = querySnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
+        setSessions(sessionList)
     }
 
     function calculateTrainingHours() {
@@ -62,7 +64,7 @@ function User() {
 
     return (
         <div className="flex flex-col w-full h-fit">
-            
+
             <div className={`flex h-fit pl-5 pr-5 pt-2 pb-2 w-full rounded-3xl bg-secondary-color`}>
                 <div className="w-fit h-6">
                     {name}

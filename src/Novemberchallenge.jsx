@@ -6,7 +6,7 @@ function Novemberchallenge({ children }) {
     return (
         <div className="flex flex-col w-full h-full p-5">
             <div className="flex items-center w-full h-20 text-2xl bg-tertiary-color rounded-2xl">
-                <div className="flex pl-2 w-1/12">
+                <div className="flex pl-5 w-1/12">
                     <div className="bg-accent-color-main rounded-lg p-1">
                         <AppIcon />
                     </div>
