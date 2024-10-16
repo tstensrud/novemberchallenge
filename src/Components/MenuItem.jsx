@@ -14,7 +14,7 @@ function MenuItem({ url, index, menuText, setActiveIndex, activeIndex, svg }) {
                 <div className={`${activeIndex === index && 'stroke-primary-color'} flex w-8 justify-start`}>
                     {svg}
                 </div>
-                <div className={`flex flex-1 ml-2`}>
+                <div className={`flex flex-1 ml-2 tracking-wide`}>
                     {menuText}
                 </div>
             </div>

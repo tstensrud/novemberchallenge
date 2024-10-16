@@ -12,7 +12,7 @@ function Novemberchallenge({ children }) {
                     </div>
                 </div>
                 <div className="flex justify-center w-10/12">
-                    <div className="pl-5 pr-5 pt-2 pb-2 w-fit rounded-3xl bg-secondary-color">
+                    <div className="pl-5 pr-5 pt-2 -tracking-wide font-bold pb-2 w-fit rounded-3xl bg-secondary-color">
                         November challenge 2024
                     </div>
                 </div>

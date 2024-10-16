@@ -119,7 +119,7 @@ function Stats() {
         <div className="flex w-full justify-center gap-5 flex-wrap">
 
             <div className="flex flex-col p-2 items-center rounded-2xl bg-secondary-color w-80">
-                <div className="text-center">
+                <div className="text-center font-semibold text-xl -tracking-wide">
                     Harde fakta
                 </div>
                 {
@@ -181,7 +181,7 @@ function Stats() {
             </div>
 
             <div className="flex flex-col p-2 items-center rounded-2xl bg-secondary-color">
-                <div className="text-center">
+                <div className="text-center text-xl font-semibold -tracking-wide">
                     Gjennomførte økter
                 </div>
                 <div className="flex items-center">
@@ -201,7 +201,7 @@ function Stats() {
 
             <div className="flex">
                 <div className="flex flex-col p-2 items-center rounded-2xl bg-secondary-color">
-                    <div className="text-center">
+                    <div className="text-center font-semibold -tracking-wide text-xl">
                         Dag for dag
                     </div>
                     <div>

@@ -1,7 +1,7 @@
 function Help() {
     return (
         <div className="flex flex-col w-2/3 break-words">
-            <div className="text-lg">
+            <div className="text-xl -tracking-wider">
                 Velkommen til årets November challenge!
             </div>
             <div className="mt-2">

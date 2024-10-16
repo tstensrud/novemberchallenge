@@ -40,8 +40,8 @@ function Table() {
             ) : (
                 <div className="flex flex-col w-full">
                     <div className="flex w-full bg-secondary-color rounded-2xl">
-                        <div className="flex justify-center p-2 w-1/3 rounded-tl-lg">Deltaker</div>
-                        <div className="flex justify-center p-2 w-2/3 rounded-tr-lg">Progresjon</div>
+                        <div className="flex justify-center p-2 w-1/3 rounded-tl-lg text-lg font-semibold">Deltaker</div>
+                        <div className="flex justify-center p-2 w-2/3 rounded-tr-lg text-lg font-semibold">Progresjon</div>
                     </div>
                     {
                         users && Object.keys(users).map((key, index) => (

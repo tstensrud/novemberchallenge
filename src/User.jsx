@@ -66,7 +66,7 @@ function User() {
         <div className="flex flex-col w-full h-fit">
 
             <div className={`flex h-fit pl-5 pr-5 pt-2 pb-2 w-full rounded-3xl bg-secondary-color`}>
-                <div className="w-fit h-6">
+                <div className="w-fit h-6 -tracking-wider font-semibold text-xl">
                     {name}
                 </div>
                 <div className="flex h-6 items-center flex-1 justify-end">
@@ -76,7 +76,7 @@ function User() {
             <div className="flex w-full pt-5">
                 <div className="flex flex-col w-1/3 rounded-lg bg-secondary-color p-2">
                     <div className="flex">
-                        <div>
+                        <div className="text-primary-color-faded">
                             Antall økter
                         </div>
                         <div className="flex flex-1 justify-end">
@@ -90,7 +90,7 @@ function User() {
                         </div>
                     </div>
                     <div className="flex">
-                        <div>
+                        <div className="text-primary-color-faded">
                             Antall timer
                         </div>
                         <div className="flex flex-1 justify-end">
@@ -111,9 +111,9 @@ function User() {
             </div>
             <div className="pt-5">
                 <div className="flex w-full bg-secondary-color rounded-lg p-2">
-                    <div className="flex items-center justify-center w-1/3">Dato</div>
-                    <div className="flex items-center justify-center w-1/3">Type økt</div>
-                    <div className="flex items-center justify-center w-1/3">Varighet</div>
+                    <div className="flex items-center justify-center w-1/3 -tracking-wide font-semibold text-lg">Dato</div>
+                    <div className="flex items-center justify-center w-1/3 -tracking-wide font-semibold text-lg">Type økt</div>
+                    <div className="flex items-center justify-center w-1/3 -tracking-wide font-semibold text-lg">Varighet</div>
                 </div>
             </div>
             {
